@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo Board</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #1e272e;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Color Variables */
+        :root {
+            --red: #e74c3c;
+            --green: #2ecc71;
+            --yellow: #f1c40f;
+            --blue: #3498db;
+            --border-color: #2c3e50;
+        }
+
+        /* Main Board Layout (15x15 Grid Proportion) */
+        .ludo-board {
+            width: 600px;
+            height: 600px;
+            background-color: #ffffff;
+            display: grid;
+            grid-template-columns: 6fr 3fr 6fr;
+            grid-template-rows: 6fr 3fr 6fr;
+            border: 6px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Home Corner Bases */
+        .base {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid var(--border-color);
+        }
+
+        .red-base { background-color: var(--red); }
+        .green-base { background-color: var(--green); }
+        .yellow-base { background-color: var(--yellow); }
+        .blue-base { background-color: var(--blue); }
+
+        .base-inner {
+            width: 70%;
+            height: 70%;
+            background-color: #ffffff;
+            border: 2px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            padding: 12px;
+            gap: 15px;
+        }
+
+        .token-box {
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+        }
+
+        .token-box.red { background-color: var(--red); }
+        .token-box.green { background-color: var(--green); }
+        .token-box.yellow { background-color: var(--yellow); }
+        .token-box.blue { background-color: var(--blue); }
+
+        /* Track Layouts */
+        .track {
+            display: grid;
+        }
+
+        .vertical-track {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+        }
+
+        .horizontal-track {
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        /* Track Cells */
+        .cell {
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: #444;
+            user-select: none;
+        }
+
+        /* Paths and Highlighted Cells */
+        .red-path { background-color: var(--red); }
+        .green-path { background-color: var(--green); }
+        .yellow-path { background-color: var(--yellow); }
+        .blue-path { background-color: var(--blue); }
+
+        .red-start { background-color: var(--red); color: #fff; }
+        .green-start { background-color: var(--green); color: #fff; }
+        .yellow-start { background-color: var(--yellow); color: #fff; }
+        .blue-start { background-color: var(--blue); color: #fff; }
+
+        .safe-zone {
+            background-color: #dcdde1;
+        }
+
+        /* Center Triangles Area */
+        .home-center {
+            position: relative;
+            border: 1px solid var(--border-color);
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+
+        .triangle-red {
+            border-top: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-left: 60px solid var(--red);
+            top: 0;
+            left: 0;
+        }
+
+        .triangle-green {
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-top: 60px solid var(--green);
+            top: 0;
+            left: 0;
+        }
+
+        .triangle-yellow {
+            border-top: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-right: 60px solid var(--yellow);
+            top: 0;
+            right: 0;
+        }
+
+        .triangle-blue {
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 60px solid var(--blue);
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ludo-board">
+        <!-- TOP ROW -->
+        <!-- Red Base (Top-Left) -->
+        <div class="base red-base">
+            <div class="base-inner">
+                <div class="token-box red"></div>
+                <div class="token-box red"></div>
+                <div class="token-box red"></div>
+                <div class="token-box red"></div>
+            </div>
+        </div>
+
+        <!-- Green Path (Top Track) -->
+        <div class="track vertical-track">
+            <div class="cell"></div>
+            <div class="cell green-path"></div>
+            <div class="cell"></div>
+
+            <div class="cell"></div>
+            <div class="cell green-path"></div>
+            <div class="cell green-start">★</div>
+
+            <div class="cell safe-zone">★</div>
+            <div class="cell green-path"></div>
+            <div class="cell"></div>
+
+            <div class="cell"></div>
+            <div class="cell green-path"></div>
+            <div class="cell"></div>
+
+            <div class="cell"></div>
+            <div class="cell green-path"></div>
+            <div class="cell"></div>
+
+            <div class="cell"></div>
+            <div class="cell green-path"></div>
+            <div class="cell"></div>
+        </div>
+
+        <!-- Green Base (Top-Right) -->
+        <div class="base green-base">
+            <div class="base-inner">
+                <div class="token-box green"></div>
+                <div class="token-box green"></div>
+                <div class="token-box green"></div>
+                <div class="token-box green"></div>
+            </div>
+        </div>
+
+        <!-- MIDDLE ROW -->
+        <!-- Red Path (Left Track) -->
+        <div class="track horizontal-track">
+            <div class="cell"></div>
+            <div class="cell red-start">★</div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+
+            <div class="cell"></div>
+            <div class="cell red-path"></div>
+            <div class="cell red-path"></div>
+            <div class="cell red-path"></div>
+            <div class="cell red-path"></div>
+            <div class="cell red-path"></div>
+
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell safe-zone">★</div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+
+        <!-- Center Home Triangles -->
+        <div class="home-center">
+            <div class="triangle triangle-red"></div>
+            <div class="triangle triangle-green"></div>
+            <div class="triangle triangle-yellow"></div>
+            <div class="triangle triangle-blue"></div>
+        </div>
+
+        <!-- Yellow Path (Right Track) -->
+        <div class="track horizontal-track">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell safe-zone">★</div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+
+            <div class="cell yellow-path"></div>
+            <div class="cell yellow-path"></div>
+            <div class="cell yellow-path"></div>
+            <div class="cell yellow-path"></div>
+            <div class="cell yellow-path"></div>
+            <div class="cell"></div>
+
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell yellow-start">★</div>
+            <div class="cell"></div>
+        </div>
+
+        <!-- BOTTOM ROW -->
+        <!-- Blue Base (Bottom-Left) -->
+        <div class="base blue-base">
+            <div class="base-inner">
+                <div class="token-box blue"></div>
+                <div class="token-box blue"></div>
+                <div class="token-box blue"></div>
+                <div class="token-box blue"></div>
+            </div>
+        </div>
+
+        <!-- Blue Path (Bottom Track) -->
+        <div class="track vertical-track">
+            <div class="cell"></div>
+            <div class="cell blue-path"></div>
+            <div class="cell"></div>
+
+            <div class="cell"></div>
+            <div class="cell blue-path"></div>
+            <div class="cell"></div>
+
+            <div class="cell"></div>
+            <div class="cell blue-path"></div>
+            <div class="cell"></div>
+
+            <div class="cell"></div>
+            <div class="cell blue-path"></div>
+            <div class="cell safe-zone">★</div>
+
+            <div class="cell blue-start">★</div>
+            <div class="cell blue-path"></div>
+            <div class="cell"></div>
+
+            <div class="cell"></div>
+            <div class="cell blue-path"></div>
+            <div class="cell"></div>
+        </div>
+
+        <!-- Yellow Base (Bottom-Right) -->
+        <div class="base yellow-base">
+            <div class="base-inner">
+                <div class="token-box yellow"></div>
+                <div class="token-box yellow"></div>
+                <div class="token-box yellow"></div>
+                <div class="token-box yellow"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

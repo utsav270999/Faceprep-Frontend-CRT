@@ -1,0 +1,1625 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Utsav Kumar | AI/ML & Backend Developer</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080b12;
+            color: #e8eaf0;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(8, 11, 18, 0.94);
+            border-bottom: 1px solid #242936;
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            height: 70px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #7c5cff;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #aeb5c3;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #7c5cff;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 0 90px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 80% 35%,
+                    rgba(124, 92, 255, 0.18),
+                    transparent 35%
+                ),
+                #080b12;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .hello {
+            color: #7c5cff;
+            font-size: 13px;
+            letter-spacing: 4px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 8vw, 90px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #7c5cff;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            line-height: 1.25;
+            color: #d8dce5;
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            max-width: 600px;
+            color: #8d96a6;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 13px 24px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #7c5cff;
+            color: white;
+        }
+
+        .primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(124, 92, 255, 0.3);
+        }
+
+        .secondary {
+            border: 1px solid #343b49;
+        }
+
+        .secondary:hover {
+            border-color: #7c5cff;
+            color: #7c5cff;
+        }
+
+
+        /* =========================
+           SOCIAL
+        ========================= */
+
+        .social {
+            display: flex;
+            gap: 25px;
+        }
+
+        .social a {
+            color: #9099a9;
+            font-size: 14px;
+        }
+
+        .social a:hover {
+            color: #7c5cff;
+        }
+
+
+        /* =========================
+           CODE CARD
+        ========================= */
+
+        .code-card {
+            background: #11161f;
+            border: 1px solid #292f3a;
+            border-radius: 14px;
+            overflow: hidden;
+
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .window {
+            height: 42px;
+            padding: 0 15px;
+
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            background: #171d27;
+            border-bottom: 1px solid #292f3a;
+        }
+
+        .window i {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4b5360;
+        }
+
+        .code {
+            padding: 30px;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .indent {
+            padding-left: 25px;
+        }
+
+        .purple {
+            color: #c084fc;
+        }
+
+        .blue {
+            color: #60a5fa;
+        }
+
+        .green {
+            color: #86efac;
+        }
+
+        .orange {
+            color: #fbbf24;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section:not(.hero) {
+            padding: 100px 0;
+        }
+
+        .light {
+            background: #ffffff;
+            color: #181b22;
+        }
+
+        .dark {
+            background: #080b12;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title p {
+            color: #7c5cff;
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            letter-spacing: -2px;
+        }
+
+        .section-title h2 span {
+            color: #7c5cff;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #656d7a;
+            margin-bottom: 18px;
+            font-size: 16px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .stat {
+            background: #f5f6f8;
+            border: 1px solid #e4e6eb;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .stat h3 {
+            color: #7c5cff;
+            font-size: 35px;
+        }
+
+        .stat p {
+            color: #6c7481;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .skill {
+            background: #11161f;
+            border: 1px solid #272e3a;
+            border-radius: 12px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-6px);
+            border-color: #7c5cff;
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 10px;
+
+            background: rgba(124,92,255,0.12);
+            color: #9b86ff;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .skill h3 {
+            margin-bottom: 12px;
+        }
+
+        .skill p {
+            color: #9099a9;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        .experience {
+            max-width: 850px;
+        }
+
+        .experience-card {
+            padding: 35px;
+            background: #f5f6f8;
+            border: 1px solid #e2e4e8;
+            border-radius: 12px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 5px;
+        }
+
+        .experience-header h3 {
+            font-size: 23px;
+        }
+
+        .role {
+            color: #7c5cff;
+            font-weight: bold;
+        }
+
+        .date {
+            color: #777f8c;
+            font-size: 14px;
+        }
+
+        .remote {
+            color: #7c8490;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .experience-card ul {
+            padding-left: 20px;
+        }
+
+        .experience-card li {
+            color: #626a77;
+            margin-bottom: 9px;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            min-height: 390px;
+            padding: 30px;
+
+            background: #11161f;
+            border: 1px solid #282f3b;
+            border-radius: 14px;
+
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+            border-color: #7c5cff;
+        }
+
+        .project.featured {
+            border-color: #7c5cff;
+        }
+
+        .number {
+            font-size: 55px;
+            font-weight: 900;
+            color: #1d2430;
+            margin-bottom: 30px;
+        }
+
+        .project-type {
+            color: #9580ff;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .project h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .project-description {
+            color: #9099a9;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .tags span {
+            background: #191f29;
+            border: 1px solid #2b323e;
+            border-radius: 5px;
+            padding: 5px 9px;
+
+            color: #aeb5c1;
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================= */
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .achievement {
+            padding: 35px;
+            background: #f5f6f8;
+            border: 1px solid #e3e5e9;
+            border-radius: 12px;
+        }
+
+        .achievement h3 {
+            color: #7c5cff;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .achievement p {
+            color: #68717e;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: #11161f;
+            border: 1px solid #272e3a;
+            border-radius: 12px;
+
+            padding: 30px;
+            margin-bottom: 15px;
+        }
+
+        .education-date {
+            color: #7c5cff;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .education-card h3 {
+            font-size: 20px;
+        }
+
+        .education-card p:last-child {
+            color: #9099a9;
+        }
+
+        .marks {
+            text-align: right;
+        }
+
+        .marks span {
+            display: block;
+            color: #777f8c;
+            font-size: 12px;
+        }
+
+        .marks strong {
+            color: white;
+            font-size: 20px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            padding: 120px 0;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(124,92,255,0.14),
+                    transparent 45%
+                ),
+                #080b12;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact h2 {
+            font-size: clamp(40px, 6vw, 65px);
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        .contact h2 span {
+            color: #7c5cff;
+        }
+
+        .contact-description {
+            color: #9099a9;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-info a {
+            color: #9099a9;
+            font-size: 14px;
+        }
+
+        .contact-info a:hover {
+            color: #7c5cff;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #05070b;
+            border-top: 1px solid #202631;
+            padding: 25px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            color: #626b79;
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #7e8795;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: #7c5cff;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .achievements {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                position: relative;
+            }
+
+            .navbar {
+                height: auto;
+                padding: 20px 0;
+
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding-top: 80px;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+                letter-spacing: -3px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            section:not(.hero) {
+                padding: 70px 0;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .education-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .marks {
+                text-align: left;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+
+    <div class="container navbar">
+
+        <a href="#home" class="logo">
+            Utsav<span>.</span>
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section id="home" class="hero">
+
+    <div class="container hero-container">
+
+        <div>
+
+            <p class="hello">
+                HELLO, I'M
+            </p>
+
+            <h1>
+                Utsav <span>Kumar</span>
+            </h1>
+
+            <h2>
+                AI/ML Enthusiast &<br>
+                Backend Developer
+            </h2>
+
+            <p class="hero-description">
+                B.Tech Computer Science student passionate about
+                building AI-powered applications, backend systems,
+                and exploring Agentic AI.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn primary">
+                    View Projects
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
+            <div class="social">
+
+                <a href="https://github.com/2024pceacsutsav171-cloud"
+                   target="_blank">
+                    GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/in/utsav-kumar-55a921336/"
+                   target="_blank">
+                    LinkedIn
+                </a>
+
+                <a href="https://leetcode.com/u/utsa25/"
+                   target="_blank">
+                    LeetCode
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="code-card">
+
+            <div class="window">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+
+            <div class="code">
+
+                <p>
+                    <span class="purple">class</span>
+                    <span class="blue">Developer</span>:
+                </p>
+
+                <p class="indent">
+                    name =
+                    <span class="green">"Utsav Kumar"</span>
+                </p>
+
+                <p class="indent">
+                    role =
+                    <span class="green">"AI/ML Developer"</span>
+                </p>
+
+                <p class="indent">
+                    backend =
+                    <span class="green">"FastAPI"</span>
+                </p>
+
+                <p class="indent">
+                    database =
+                    <span class="green">"PostgreSQL"</span>
+                </p>
+
+                <p class="indent">
+                    focus =
+                    <span class="green">"Agentic AI"</span>
+                </p>
+
+                <p class="indent">
+                    dsa_problems =
+                    <span class="orange">100+</span>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about" class="light">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <p>ABOUT ME</p>
+
+            <h2>
+                Building with
+                <span>code & intelligence.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <p>
+                    I am a B.Tech Computer Science Engineering student
+                    at Poornima College of Engineering, Jaipur.
+                </p>
+
+                <p>
+                    I have strong foundations in Data Structures &
+                    Algorithms and have solved 100+ problems across
+                    coding platforms.
+                </p>
+
+                <p>
+                    My interests include backend development, AI/ML,
+                    Natural Language Processing, and building
+                    AI-powered applications.
+                </p>
+
+                <p>
+                    Currently, I am exploring Agentic AI, LLM-based
+                    applications, multi-agent workflows, and
+                    autonomous systems.
+                </p>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+                    <h3>100+</h3>
+                    <p>DSA Problems</p>
+                </div>
+
+                <div class="stat">
+                    <h3>8.1</h3>
+                    <p>CGPA / 10</p>
+                </div>
+
+                <div class="stat">
+                    <h3>100%</h3>
+                    <p>NPTEL Python</p>
+                </div>
+
+                <div class="stat">
+                    <h3>AI</h3>
+                    <p>Current Focus</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills" class="dark">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <p>MY SKILLS</p>
+
+            <h2>
+                Technologies I
+                <span>work with.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="skills">
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>Languages</h3>
+
+                <p>Python</p>
+                <p>C++</p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    DS
+                </div>
+
+                <h3>Core CS</h3>
+
+                <p>Data Structures & Algorithms</p>
+                <p>OOP</p>
+                <p>DBMS</p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    API
+                </div>
+
+                <h3>Backend</h3>
+
+                <p>FastAPI</p>
+                <p>REST APIs</p>
+                <p>SQLAlchemy</p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    AI
+                </div>
+
+                <h3>AI / ML</h3>
+
+                <p>NumPy</p>
+                <p>Pandas</p>
+                <p>Scikit-learn</p>
+                <p>NLP</p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    DB
+                </div>
+
+                <h3>Databases</h3>
+
+                <p>PostgreSQL</p>
+                <p>MongoDB</p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    ☁
+                </div>
+
+                <h3>Cloud & Tools</h3>
+
+                <p>AWS EC2</p>
+                <p>Docker</p>
+                <p>Git & GitHub</p>
+                <p>Postman</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EXPERIENCE
+========================= -->
+
+<section id="experience" class="light">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <p>EXPERIENCE</p>
+
+            <h2>
+                Where I've
+                <span>worked.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="experience">
+
+            <div class="experience-card">
+
+                <div class="experience-header">
+
+                    <div>
+
+                        <h3>
+                            Bright Hub Pvt. Ltd.
+                        </h3>
+
+                        <p class="role">
+                            AI/ML Intern
+                        </p>
+
+                    </div>
+
+                    <span class="date">
+                        Jun 2026 — Jul 2026
+                    </span>
+
+                </div>
+
+                <p class="remote">
+                    Remote
+                </p>
+
+                <ul>
+
+                    <li>
+                        Built hands-on AI/ML projects focused on
+                        LLM-based autonomous systems and Agentic AI
+                        workflows.
+                    </li>
+
+                    <li>
+                        Developed an AI email assistant, web research
+                        agent, and multi-agent collaboration system
+                        using LLM tool-calling.
+                    </li>
+
+                    <li>
+                        Designed agent workflows involving task
+                        decomposition, tool integration, and
+                        orchestration between cooperating agents.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects" class="dark">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <p>MY WORK</p>
+
+            <h2>
+                Featured
+                <span>projects.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="projects">
+
+
+            <div class="project">
+
+                <div class="number">
+                    01
+                </div>
+
+                <p class="project-type">
+                    MACHINE LEARNING
+                </p>
+
+                <h3>
+                    House Price Prediction System
+                </h3>
+
+                <p class="project-description">
+                    Machine learning system for predicting house
+                    prices using structured housing data with
+                    preprocessing, EDA, feature engineering and
+                    model evaluation.
+                </p>
+
+                <div class="tags">
+                    <span>Python</span>
+                    <span>Pandas</span>
+                    <span>NumPy</span>
+                    <span>Scikit-learn</span>
+                </div>
+
+            </div>
+
+
+            <div class="project featured">
+
+                <div class="number">
+                    02
+                </div>
+
+                <p class="project-type">
+                    AI + BACKEND
+                </p>
+
+                <h3>
+                    AI Prescription Cost Optimizer
+                </h3>
+
+                <p class="project-description">
+                    AI-powered application designed to analyze
+                    prescription information and identify
+                    cost-effective medicine alternatives using
+                    a modular backend architecture.
+                </p>
+
+                <div class="tags">
+                    <span>Python</span>
+                    <span>FastAPI</span>
+                    <span>SQLAlchemy</span>
+                    <span>PostgreSQL</span>
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="number">
+                    03
+                </div>
+
+                <p class="project-type">
+                    WEB DEVELOPMENT
+                </p>
+
+                <h3>
+                    Netflix Clone Website
+                </h3>
+
+                <p class="project-description">
+                    Responsive Netflix-inspired streaming interface
+                    with a structured movie browsing layout and
+                    responsive styling.
+                </p>
+
+                <div class="tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ACHIEVEMENTS
+========================= -->
+
+<section class="light">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <p>ACHIEVEMENTS</p>
+
+            <h2>
+                Milestones &
+                <span>certifications.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="achievements">
+
+            <div class="achievement">
+
+                <h3>100+</h3>
+
+                <p>
+                    Data Structures & Algorithms problems solved
+                    across coding platforms.
+                </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+                <h3>100%</h3>
+
+                <p>
+                    NPTEL Python certification score.
+                </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+                <h3>NPTEL</h3>
+
+                <p>
+                    Certification in Enhancing Soft Skills
+                    and Personality.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EDUCATION
+========================= -->
+
+<section id="education" class="dark">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <p>EDUCATION</p>
+
+            <h2>
+                My academic
+                <span>journey.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <div>
+
+                <p class="education-date">
+                    2024 — 2028
+                </p>
+
+                <h3>
+                    B.Tech in Computer Science Engineering
+                </h3>
+
+                <p>
+                    Poornima College of Engineering, Jaipur
+                </p>
+
+            </div>
+
+            <div class="marks">
+
+                <span>CGPA</span>
+
+                <strong>
+                    8.1 / 10
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <div>
+
+                <p class="education-date">
+                    2023
+                </p>
+
+                <h3>
+                    CBSE Class XII
+                </h3>
+
+                <p>
+                    D.A.V. Public School, H.F.C. Barauni
+                </p>
+
+            </div>
+
+            <div class="marks">
+
+                <span>Percentage</span>
+
+                <strong>
+                    70.03%
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <div>
+
+                <p class="education-date">
+                    2021
+                </p>
+
+                <h3>
+                    CBSE Class X
+                </h3>
+
+                <p>
+                    D.A.V. Public School, H.F.C. Barauni
+                </p>
+
+            </div>
+
+            <div class="marks">
+
+                <span>Percentage</span>
+
+                <strong>
+                    81.89%
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact" class="contact">
+
+    <div class="container contact-content">
+
+        <p class="hello">
+            GET IN TOUCH
+        </p>
+
+        <h2>
+            Let's build something
+            <span>great.</span>
+        </h2>
+
+        <p class="contact-description">
+            I'm open to internships, projects, collaborations,
+            and opportunities related to AI/ML and backend development.
+        </p>
+
+        <a
+            href="mailto:utsav270999@gmail.com"
+            class="btn primary"
+        >
+            Say Hello →
+        </a>
+
+        <div class="contact-info">
+
+            <a href="mailto:utsav270999@gmail.com">
+                utsav270999@gmail.com
+            </a>
+
+            <a href="tel:+919135705337">
+                +91-9135705337
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container footer-content">
+
+        <p>
+            © 2026 Utsav Kumar. Built with HTML & CSS.
+        </p>
+
+        <div class="footer-links">
+
+            <a
+                href="https://github.com/2024pceacsutsav171-cloud"
+                target="_blank"
+            >
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/utsav-kumar-55a921336/"
+                target="_blank"
+            >
+                LinkedIn
+            </a>
+
+            <a
+                href="https://leetcode.com/u/utsa25/"
+                target="_blank"
+            >
+                LeetCode
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
+```

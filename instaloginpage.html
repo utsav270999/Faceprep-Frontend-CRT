@@ -1,0 +1,190 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fafafa;
+        }
+
+        .container {
+            width: 350px;
+            margin: 80px auto;
+        }
+
+        .login-box {
+            background-color: white;
+            border: 1px solid #dbdbdb;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: cursive;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 35px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 8px;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            background-color: #fafafa;
+            font-size: 12px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #999;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 9px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #0095f6;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .or {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: #737373;
+            font-size: 13px;
+        }
+
+        .or::before,
+        .or::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #dbdbdb;
+        }
+
+        .or span {
+            margin: 0 15px;
+        }
+
+        .facebook {
+            color: #385185;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .forgot {
+            color: #00376b;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .signup-box {
+            background-color: white;
+            border: 1px solid #dbdbdb;
+            margin-top: 10px;
+            padding: 25px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .signup-box a {
+            color: #0095f6;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .get-app {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+        }
+
+        .store {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .store button {
+            padding: 10px 15px;
+            margin: 3px;
+            border: none;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="login-box">
+
+            <div class="logo">Instagram</div>
+
+            <form>
+
+                <input type="text"
+                       placeholder="Phone number, username, or email">
+
+                <input type="password"
+                       placeholder="Password">
+
+                <button class="login-btn" type="submit">
+                    Log in
+                </button>
+
+            </form>
+
+            <div class="or">
+                <span>OR</span>
+            </div>
+
+            <div class="facebook">
+                Log in with Facebook
+            </div>
+
+            <a href="#" class="forgot">
+                Forgot password?
+            </a>
+
+        </div>
+
+        <div class="signup-box">
+            Don't have an account?
+            <a href="#">Sign up</a>
+        </div>
+
+        <div class="get-app">
+            Get the app.
+        </div>
+
+        <div class="store">
+            <button>Google Play</button>
+            <button>App Store</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
+```

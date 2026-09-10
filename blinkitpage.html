@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blinkit - Everything delivered in 10 minutes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6fb;
+            color: #1c1c1c;
+        }
+
+        /* NAVBAR HEADER */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #ffffff;
+            padding: 12px 40px;
+            border-bottom: 1px solid #e8e8e8;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo-blink {
+            color: #f7c32e;
+        }
+
+        .logo-it {
+            color: #0c831f;
+        }
+
+        .location-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .delivery-time {
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .location-address {
+            font-size: 12px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .nav-search {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 30px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-search input {
+            width: 100%;
+            padding: 12px 16px 12px 42px;
+            border-radius: 12px;
+            border: 1px solid #e8e8e8;
+            background-color: #f8f8f8;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .nav-search input:focus {
+            background-color: #ffffff;
+            border-color: #0c831f;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .login-btn {
+            background: transparent;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .cart-btn {
+            background-color: #0c831f;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        /* MAIN CONTAINER */
+        .main-container {
+            max-width: 1280px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* HERO BANNER */
+        .hero-banner {
+            background: linear-gradient(135deg, #0c831f, #10b981);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+
+        .banner-content h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .banner-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .banner-btn {
+            background-color: #f7c32e;
+            color: #000;
+            font-weight: 700;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* SECTIONS */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .see-all {
+            color: #0c831f;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* CATEGORY GRID */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
+        }
+
+        .category-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px 10px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #f0f0f0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .cat-img {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .category-card span {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* PRODUCT GRID */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 16px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #ebebeb;
+            padding: 14px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #f4f6fb;
+            color: #555;
+            font-size: 9px;
+            font-weight: 800;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+
+        .product-image {
+            font-size: 60px;
+            text-align: center;
+            margin: 20px 0 10px 0;
+        }
+
+        .product-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .product-qty {
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 12px;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1c1c1c;
+        }
+
+        .add-btn {
+            background-color: #f7fff9;
+            color: #0c831f;
+            border: 1px solid #0c831f;
+            padding: 6px 18px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .add-btn:hover {
+            background-color: #0c831f;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR HEADER -->
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <span class="logo-blink">blink</span><span class="logo-it">it</span>
+            </div>
+            <div class="location-box">
+                <span class="delivery-time">Delivery in 10 minutes</span>
+                <span class="location-address">Jaipur, Rajasthan, India ▼</span>
+            </div>
+        </div>
+
+        <div class="nav-search">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder='Search "milk", "bread", "chips"...' />
+        </div>
+
+        <div class="nav-right">
+            <button class="login-btn">Login</button>
+            <button class="cart-btn">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-text">My Cart</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="main-container">
+
+        <!-- PROMO HERO BANNER -->
+        <section class="hero-banner">
+            <div class="banner-content">
+                <h1>Pharmacy at your doorstep! 💊</h1>
+                <p>Cough, cold & fever essentials delivered in 10 mins.</p>
+                <button class="banner-btn">Order Now</button>
+            </div>
+        </section>
+
+        <!-- CATEGORIES SECTION -->
+        <section class="section">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="cat-img">🥛</div>
+                    <span>Dairy, Bread & Eggs</span>
+                </div>
+                <div class="category-card">
+                    <div class="cat-img">🍎</div>
+                    <span>Fruits & Vegetables</span>
+                </div>
+                <div class="category-card">
+                    <div class="cat-img">🥤</div>
+                    <span>Cold Drinks & Juices</span>
+                </div>
+                <div class="category-card">
+                    <div class="cat-img">🍿</div>
+                    <span>Snacks & Munchies</span>
+                </div>
+                <div class="category-card">
+                    <div class="cat-img">🍫</div>
+                    <span>Sweets & Chocolates</span>
+                </div>
+                <div class="category-card">
+                    <div class="cat-img">🧼</div>
+                    <span>Personal Care</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT LIST SECTION -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Dairy, Bread & Milk</h2>
+                <a href="#" class="see-all">see all</a>
+            </div>
+
+            <div class="product-grid">
+
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="badge">10 MINS</div>
+                    <div class="product-image">🥛</div>
+                    <h3 class="product-name">Amul Taaza Toned Fresh Milk</h3>
+                    <span class="product-qty">500 ml</span>
+                    <div class="product-footer">
+                        <span class="price">₹27</span>
+                        <button class="add-btn">ADD</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="badge">10 MINS</div>
+                    <div class="product-image">🍞</div>
+                    <h3 class="product-name">Harvest Gold White Bread</h3>
+                    <span class="product-qty">400 g</span>
+                    <div class="product-footer">
+                        <span class="price">₹35</span>
+                        <button class="add-btn">ADD</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="badge">10 MINS</div>
+                    <div class="product-image">🧈</div>
+                    <h3 class="product-name">Amul Salted Butter</h3>
+                    <span class="product-qty">100 g</span>
+                    <div class="product-footer">
+                        <span class="price">₹58</span>
+                        <button class="add-btn">ADD</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="badge">10 MINS</div>
+                    <div class="product-image">🥚</div>
+                    <h3 class="product-name">Table White Eggs (Tray)</h3>
+                    <span class="product-qty">6 pcs</span>
+                    <div class="product-footer">
+                        <span class="price">₹49</span>
+                        <button class="add-btn">ADD</button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="badge">10 MINS</div>
+                    <div class="product-image">🥣</div>
+                    <h3 class="product-name">Mother Dairy Classic Curd</h3>
+                    <span class="product-qty">400 g</span>
+                    <div class="product-footer">
+                        <span class="price">₹35</span>
+                        <button class="add-btn">ADD</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

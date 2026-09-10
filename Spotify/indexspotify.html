@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spotify Clone</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="spotify-logo">
+      <div class="spotify-icon"><span></span><span></span><span></span></div>
+      <strong>Spotify</strong>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-link active" data-page="home"><span class="ico">⌂</span>Home</button>
+      <button class="nav-link"><span class="ico search-ico">⌕</span>Search</button>
+      <button class="nav-link"><span class="ico">▥</span>Your Library</button>
+    </nav>
+
+    <nav class="nav second">
+      <button class="nav-link"><span class="create">+</span>Create Playlist</button>
+      <button class="nav-link"><span class="liked">♥</span>Liked Songs</button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div>Legal &nbsp;&nbsp; Privacy Center &nbsp;&nbsp; Privacy Policy</div>
+      <div>Cookies &nbsp;&nbsp; About &nbsp;&nbsp; Ads</div>
+      <button class="language">◎ English</button>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <div class="top-arrows">
+        <button>‹</button><button>›</button>
+      </div>
+      <div class="account">
+        <button class="signup">Sign up</button>
+        <button class="login">Log in</button>
+      </div>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="page">
+      <div class="section-title">
+        <h1>Focus</h1><button>Show all</button>
+      </div>
+
+      <div class="cards">
+        <article class="music-card">
+          <div class="cover-wrap">
+            <img src="assets/peaceful.jpg">
+            <button class="card-play">▶</button>
+          </div>
+          <h2>Peaceful Piano</h2>
+          <p>Peaceful piano to help you slow down, breathe, and...</p>
+        </article>
+
+        <article class="music-card" data-playlist="deep">
+          <div class="cover-wrap">
+            <img src="assets/deep.jpg">
+            <button class="card-play">▶</button>
+          </div>
+          <h2>Deep Focus</h2>
+          <p>Keep calm and focus with ambient and post-rock music.</p>
+        </article>
+
+        <article class="music-card">
+          <div class="cover-wrap">
+            <img src="assets/instrumental.jpg">
+            <button class="card-play">▶</button>
+          </div>
+          <h2>Instrumental Study</h2>
+          <p>Focus with low-key music to block out distractions.</p>
+        </article>
+
+        <article class="music-card">
+          <div class="cover-wrap">
+            <img src="assets/focus-flow.jpg">
+            <button class="card-play">▶</button>
+          </div>
+          <h2>Focus Flow</h2>
+          <p>Uplifting instrumental hip hop beats.</p>
+        </article>
+
+        <article class="music-card">
+          <div class="cover-wrap">
+            <img src="assets/beats.jpg">
+            <button class="card-play">▶</button>
+          </div>
+          <h2>Beats to think to</h2>
+          <p>Faint chill beat techno and folk house.</p>
+        </article>
+      </div>
+
+      <div class="section-title playlists-title">
+        <h1>Spotify Playlists</h1><button>Show all</button>
+      </div>
+
+      <div class="cards">
+        <article class="music-card">
+          <div class="cover-wrap"><img src="assets/todays.jpg"><button class="card-play">▶</button></div>
+          <h2>Today's Top Hits</h2><p>Harry Styles is on top of the Hot 50...</p>
+        </article>
+        <article class="music-card">
+          <div class="cover-wrap"><img src="assets/rapcaviar.jpg"><button class="card-play">▶</button></div>
+          <h2>RapCaviar</h2><p>New music from Lil Baby, Megan Thee...</p>
+        </article>
+        <article class="music-card">
+          <div class="cover-wrap"><img src="assets/allout.jpg"><button class="card-play">▶</button></div>
+          <h2>All Out 2010s</h2><p>The biggest songs of the 2010s.</p>
+        </article>
+        <article class="music-card">
+          <div class="cover-wrap"><img src="assets/c"><button class="card-play">▶</button></div>
+          <h2>Rock Classics</h2><p>Rock legends & iconic tracks from the...</p>
+        </article>
+        <article class="music-card">
+          <div class="cover-wrap"><img src="assets/chill.jpg"><button class="card-play">▶</button></div>
+          <h2>Chill Hits</h2><p>Kick back to the best new and recent chill hits.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PLAYLIST -->
+    <section id="playlist" class="page hidden">
+      <div class="playlist-hero">
+        <img src="assets/deep.jpg" class="playlist-cover">
+        <div class="playlist-info">
+          <div class="type">Playlist</div>
+          <h1>Deep Focus</h1>
+          <p>Keep calm and focus with ambient and post-rock music.</p>
+          <div class="playlist-meta">
+            <span class="spotify-mini">●</span> Spotify &nbsp;•&nbsp; 3,945,600 likes &nbsp;•&nbsp; 252 songs, about 1 hr
+          </div>
+        </div>
+      </div>
+
+      <div class="playlist-bar">
+        <button class="large-play" id="playlistPlay">▶</button>
+        <button class="plain-btn" id="likeBtn">♡</button>
+        <button class="plain-btn">•••</button>
+      </div>
+
+      <div class="track-list">
+        <div class="track header">
+          <span>#</span><span>Title</span><span>Album</span><span>Date added</span><span>◷</span>
+        </div>
+        <div class="track">
+          <span>1</span><span class="track-name"><img src="assets/so-far.jpg"><span><b>So Far So Good</b><small>Sam Of Thy</small></span></span>
+          <span>Silent Hills</span><span>1 week ago</span><span>2:21</span>
+        </div>
+        <div class="track">
+          <span>2</span><span class="track-name"><img src="assets/apricity.jpg"><span><b>Apricity</b><small>Insane 2k</small></span></span>
+          <span>Apricity</span><span>1 week ago</span><span>2:38</span>
+        </div>
+        <div class="track">
+          <span>3</span><span class="track-name"><img src="assets/solatium.jpg"><span><b>Solatium</b><small>Indiem Sun</small></span></span>
+          <span>Solatium</span><span>1 week ago</span><span>2:06</span>
+        </div>
+        <div class="track">
+          <span>4</span><span class="track-name"><img src="assets/efflorescence.jpg"><span><b>efflorescence</b><small>Far & Beyond</small></span></span>
+          <span>efflorescence</span><span>1 week ago</span><span>2:23</span>
+        </div>
+        <div class="track">
+          <span>5</span><span class="track-name"><img src="assets/gather.jpg"><span><b>Gather My Thoughts</b><small>Sweet Cry</small></span></span>
+          <span>Gather My Thoughts</span><span>1 week ago</span><span>3:03</span>
+        </div>
+        <div class="track">
+          <span>6</span><span class="track-name"><img src="assets/fresh-paint.jpg"><span><b>Fresh Paint</b><small>Deep Focus</small></span></span>
+          <span>Fresh Paint</span><span>1 week ago</span><span>2:44</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTTOM PLAYER -->
+  <footer class="player">
+    <div class="current-song">
+      <img id="currentCover" src="assets/deep.jpg">
+      <div><b id="currentTitle">Deep Focus</b><small>Spotify Focus</small></div>
+      <button id="playerLike">♡</button>
+    </div>
+
+    <div class="player-center">
+      <div class="player-controls">
+        <button>↶</button><button>◀</button>
+        <button class="player-play" id="mainPlay">▶</button>
+        <button>▶</button><button>↷</button>
+      </div>
+      <div class="timeline"><span id="timelineProgress"></span></div>
+    </div>
+
+    <div class="player-right">
+      <span>▤</span><span>▣</span><span>🔊</span>
+      <div class="volume"><span></span></div>
+    </div>
+  </footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
